@@ -15,9 +15,9 @@ TagManager:
   - Player
   - Walls
   - Meteors
-  - 
-  - 
-  - 
+  - PlayersShells
+  - EnemysShells
+  - Enemy
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Meteors
     uniqueID: 3919178825
+    locked: 0
+  - name: Enemy
+    uniqueID: 4266973079
     locked: 0
   - name: Player
     uniqueID: 4250681935

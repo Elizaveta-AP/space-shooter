@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Shell : MonoBehaviour
+public abstract class Shell : SolidObject
 {
-    protected float _speed = 2.0f;
-    
-    void Start()
+    protected override void Start()
     {
+        base.Start();
     }
 
     
     protected void Move(Rigidbody2D rb)
     {
-        rb.MovePosition(transform.position + new Vector3 (_speed, 0, 0) * Time.fixedDeltaTime);
+        rb.MovePosition(transform.position + new Vector3 (Speed, 0, 0) * Time.fixedDeltaTime);
         if (transform.position.x > 11) Destroy(gameObject);
     }
 }

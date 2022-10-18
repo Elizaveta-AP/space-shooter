@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundController : MonoBehaviour
+public class Background : MonoBehaviour
 {
     private  List<GameObject> BGs = new List<GameObject>();
     [SerializeField] private int _speed;

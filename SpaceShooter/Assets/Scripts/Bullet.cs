@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Bullet : Shell
 {
-    
     private Rigidbody2D _rb;
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         _rb = GetComponent<Rigidbody2D>();
-        _speed = 2.0f;
+        Speed = 2.0f;
+        Damage = 5;
     }
-
     
     void FixedUpdate()
     {
         Move(_rb);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.GetComponent<Meteor>()){
+            other.gameObject.GetComponent<Meteor>().TakeDamage(Damage);
+        }
+        Death();
     }
 }
