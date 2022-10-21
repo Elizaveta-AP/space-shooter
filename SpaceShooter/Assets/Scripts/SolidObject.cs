@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class SolidObject : MonoBehaviour
 {
-    protected int MaxHealth, CurrentHealth, Damage;
+    protected int MaxHealth, CurrentHealth;
     protected float Speed;
     protected virtual void Start(){
         CurrentHealth = MaxHealth;
@@ -15,7 +15,7 @@ public abstract class SolidObject : MonoBehaviour
         if (CurrentHealth <= 0) Death();
     }
 
-    protected void Death(){
+    public virtual void Death(){
         Destroy(gameObject);
     }
 }

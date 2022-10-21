@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class Shell : SolidObject
+public abstract class Shell : MonoBehaviour
 {
-    protected override void Start()
+    
+    protected float Speed;
+    [SerializeField] protected int Damage;
+    protected Vector3 forvard;
+    protected string MyTag;
+    
+
+
+    protected virtual void Start()
     {
-        base.Start();
+        
     }
 
     
     protected void Move(Rigidbody2D rb)
     {
-        rb.MovePosition(transform.position + new Vector3 (Speed, 0, 0) * Time.fixedDeltaTime);
-        if (transform.position.x > 11) Destroy(gameObject);
+        rb.MovePosition(transform.position + forvard * Speed * Time.fixedDeltaTime);
+        if ((transform.position.x > 10) || (transform.position.x < -10)) Death();
+    }
+    
+    protected void Death(){
+        Destroy(gameObject);
     }
 }

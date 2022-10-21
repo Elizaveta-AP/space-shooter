@@ -19,7 +19,6 @@ public class Meteor : SolidObject
         Speed = _random.Next(_mediumSpeed*50, _mediumSpeed*150)/100.0f;
         _speedRotation = _random.Next(-360, 360);
         MaxHealth = Mathf.RoundToInt(10 * _scale);
-        Damage = MaxHealth;
     }
 
     void FixedUpdate()
@@ -33,7 +32,9 @@ public class Meteor : SolidObject
     {
         if (other.gameObject.GetComponent<Player>()) {
             Death();
-            other.gameObject.GetComponent<Player>().TakeDamage(Damage);
+            Score.SetScore(MaxHealth);
+            other.gameObject.GetComponent<Player>().TakeDamage(MaxHealth);
             }
     }
+    
 }

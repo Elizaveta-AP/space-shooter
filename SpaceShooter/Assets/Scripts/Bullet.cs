@@ -7,10 +7,12 @@ public class Bullet : Shell
     private Rigidbody2D _rb;
     protected override void Start()
     {
-        base.Start();
+        forvard = transform.up;
         _rb = GetComponent<Rigidbody2D>();
-        Speed = 2.0f;
+        Speed = 5.0f;
         Damage = 5;
+        MyTag = gameObject.tag;
+        base.Start();
     }
     
     void FixedUpdate()
@@ -19,8 +21,8 @@ public class Bullet : Shell
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.GetComponent<Meteor>()){
-            other.gameObject.GetComponent<Meteor>().TakeDamage(Damage);
+        if (other.gameObject.tag != MyTag){
+            other.gameObject.GetComponent<SolidObject>().TakeDamage(Damage);
         }
         Death();
     }

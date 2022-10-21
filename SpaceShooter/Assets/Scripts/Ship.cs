@@ -5,11 +5,13 @@ using UnityEngine;
 public abstract class Ship : SolidObject
 {
     [SerializeField] protected GameObject Bullet;
-    protected int ShootDelay;
-    [SerializeField] protected Transform LeftBullet, RightBullet;
+    protected float ShootDelay;
+    [SerializeField] protected List<Transform> BulletHolders = new List<Transform>();
+    protected AudioSource ShotAudio;
 
     protected override void Start()
     {
+        ShotAudio = gameObject.transform.Find("Laser").GetComponent<AudioSource>();
         base.Start();
     }
 
@@ -17,7 +19,8 @@ public abstract class Ship : SolidObject
     protected IEnumerator ShootBullet(int shootAngle){
         while(true){
             yield return new WaitForSeconds(ShootDelay);
-            Instantiate(Bullet, LeftBullet.position, Quaternion.Euler(0, 0, shootAngle));
-            Instantiate(Bullet, RightBullet.position, Quaternion.Euler(0, 0, shootAngle));}
+            foreach (Transform bulletHolder in BulletHolders){
+                ShotAudio.Play();
+                Instantiate(Bullet, bulletHolder.position, Quaternion.Euler(0, 0, shootAngle));}}
     }
 }

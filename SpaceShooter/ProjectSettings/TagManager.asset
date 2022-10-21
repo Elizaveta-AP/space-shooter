@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - HolderBullet
+  - Enemy
+  - Meteor
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - Meteors
   - PlayersShells
   - EnemysShells
-  - Enemy
-  - 
+  - Enemies
+  - Coins
   - 
   - 
   - 
@@ -44,6 +47,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2778405193
+    locked: 0
+  - name: Coins
+    uniqueID: 2978460099
     locked: 0
   - name: Meteors
     uniqueID: 3919178825
