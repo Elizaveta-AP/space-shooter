@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Meteor : SolidObject
 {
@@ -26,15 +25,19 @@ public class Meteor : SolidObject
         _rb.MovePosition(transform.position - new Vector3 (Speed, 0, 0) * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation + _speedRotation * Time.fixedDeltaTime);
         
-        if (transform.position.x < -11) Death();
+        if (transform.position.x < -11) base.Death();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Player>()) {
-            Death();
-            Score.SetScore(MaxHealth);
+            base.Death();
             other.gameObject.GetComponent<Player>().TakeDamage(MaxHealth);
             }
+    }
+    public override void Death()
+    {
+        Score.SetScore(MaxHealth);
+        base.Death();
     }
     
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : Ship
 {
@@ -41,6 +42,7 @@ public class Player : Ship
     {
         _loseAudio.Play();
         base.Death();
+        SceneManager.LoadScene(0);
     }
 
     public override void TakeDamage(int damage)
