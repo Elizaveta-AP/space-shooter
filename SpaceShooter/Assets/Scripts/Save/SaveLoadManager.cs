@@ -8,13 +8,13 @@ public static class SaveLoadManager
 {
 	private static BinaryFormatter formatter = new BinaryFormatter(); //Создание сериализатора 
 
-	public static void SaveGame(GameSettings gameSettings) //Метод для сохранения
+	public static void SaveGame() //Метод для сохранения
 	{
-        string path = Application.persistentDataPath + "/" + gameSettings.Slot + ".save"; //Путь к сохранению. Вы можете использовать любое расширение
+        string path = Application.persistentDataPath + "/" + GameSettings.CurrentSettings.GetSlot() + ".save"; //Путь к сохранению. Вы можете использовать любое расширение
 		
 		FileStream fs = new FileStream (path, FileMode.Create); //Создание файлового потока
 
-		SaveData data = new SaveData(gameSettings); //Получение данных
+		SaveData data = new SaveData(); //Получение данных
 
 		formatter.Serialize(fs, data); //Сериализация данных
 
@@ -25,7 +25,9 @@ public static class SaveLoadManager
 	public static SaveData LoadGame(string slot) //Метод загрузки
 	{
         string path = Application.persistentDataPath + "/" + slot + ".save";
-		if(File.Exists(path)) { //Проверка существования файла сохранения
+
+		if(File.Exists(path)) //Проверка существования файла сохранения
+		{
 			FileStream fs = new FileStream(path, FileMode.Open); //Открытие потока
 
 			SaveData data = formatter.Deserialize(fs) as SaveData; //Получение данных
