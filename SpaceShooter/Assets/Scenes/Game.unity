@@ -980,7 +980,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &860307681
 MonoBehaviour:
@@ -1043,12 +1043,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c2f7bfc0e82d34e92ba61eff71e20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meteorsMiddleFrequencyGeneration: 0
-  _meteorsMiddleSpeed: 0
   _meteorsHealthMultplier: 0
-  _enemiesMiddleFrequencyGeneration: 0
   _enemiesMaxHealth: 0
   _enemyBulletDamage: 0
+  _meteorsMiddleFrequencyGeneration: 0
+  _meteorsMiddleSpeed: 0
+  _enemiesMiddleFrequencyGeneration: 0
   _enemiesSpeed: 0
   _enemiesShootDelay: 0
   _enemyBulletSpeed: 0
@@ -1239,6 +1239,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105802163}
   m_CullTransparentMesh: 1
+--- !u!1 &1128628982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128628984}
+  - component: {fileID: 1128628983}
+  m_Layer: 0
+  m_Name: Bonuses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1128628983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128628982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1fb035c2b571045b9ef1a330730b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shield: {fileID: 4332391995796865983, guid: 6de22fe85b787b44798ee3a8596386dc, type: 3}
+  _pill: {fileID: 2798976611299626640, guid: a98472d65963df840957db8a871b9872, type: 3}
+  _star: {fileID: 1063578762249278386, guid: 184fa5f29d9322e469bef102fed9c970, type: 3}
+--- !u!4 &1128628984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128628982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1137915333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,7 +1954,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy:
   - {fileID: 6907269563680946525, guid: f0360ffd9a63d4b48b725d99f0fd5cb1, type: 3}
-  _middleFrequency: 8
 --- !u!1 &1817874708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2223,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -375788471
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -7115,7 +7161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122447, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122447, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7127,7 +7173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122447, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122447, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7139,7 +7185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122447, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2552472925345122448, guid: ac23fcecb04eeea46b75941887e4d2a0, type: 3}
       propertyPath: m_Name

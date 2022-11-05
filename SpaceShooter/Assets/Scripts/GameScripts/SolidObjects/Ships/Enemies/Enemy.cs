@@ -25,6 +25,7 @@ public class Enemy : Ship
     public override void Death()
     {
         Score.CurrentScore.SetScore(MaxHealth);
+        BonusGeneration.Bonuses.Generation(transform.position);
         base.Death();
     }
 }

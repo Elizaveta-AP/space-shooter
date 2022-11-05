@@ -30,7 +30,12 @@ public class Bullet : Shell
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag != MyTag){
+        string otherTag = other.gameObject.tag;
+
+        if (otherTag == "Shield") { Death(); }
+
+        else if (otherTag != MyTag)
+        {
             other.gameObject.GetComponent<SolidObject>().TakeDamage(Damage);
             Death();
         }

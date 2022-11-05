@@ -24,15 +24,15 @@ public class GameDifficulty : MonoBehaviour
         _enemiesShootDelay = 3;                 // +
 
         
-        Debug.Log($"meteorsMiddleFrequencyGeneration = {_meteorsMiddleFrequencyGeneration}");
-        Debug.Log($"meteorsMiddleSpeed = {_meteorsMiddleSpeed}");
-        Debug.Log($"meteorsHealthMultplier = {_meteorsHealthMultplier}");
-        Debug.Log($"enemiesMiddleFrequencyGeneration = {_enemiesMiddleFrequencyGeneration}");
-        Debug.Log($"enemiesMaxHealth = {_enemiesMaxHealth}");
-        Debug.Log($"enemyBulletDamage = {_enemyBulletDamage}");
-        Debug.Log($"enemyBulletSpeed = {_enemyBulletSpeed}");
-        Debug.Log($"enemiesSpeed = {_enemiesSpeed}");
-        Debug.Log($"enemiesShootDelay = {_enemiesShootDelay}");
+        // Debug.Log($"meteorsMiddleFrequencyGeneration = {_meteorsMiddleFrequencyGeneration}");
+        // Debug.Log($"meteorsMiddleSpeed = {_meteorsMiddleSpeed}");
+        // Debug.Log($"meteorsHealthMultplier = {_meteorsHealthMultplier}");
+        // Debug.Log($"enemiesMiddleFrequencyGeneration = {_enemiesMiddleFrequencyGeneration}");
+        // Debug.Log($"enemiesMaxHealth = {_enemiesMaxHealth}");
+        // Debug.Log($"enemyBulletDamage = {_enemyBulletDamage}");
+        // Debug.Log($"enemyBulletSpeed = {_enemyBulletSpeed}");
+        // Debug.Log($"enemiesSpeed = {_enemiesSpeed}");
+        // Debug.Log($"enemiesShootDelay = {_enemiesShootDelay}");
     }
 
     public void DifficultyUp()
@@ -46,15 +46,15 @@ public class GameDifficulty : MonoBehaviour
         _enemyBulletSpeed += 0.1f;
         _enemiesSpeed += 0.1f;
         _enemiesShootDelay *= 0.95f; 
-        Debug.Log($"meteorsMiddleFrequencyGeneration = {_meteorsMiddleFrequencyGeneration}");
-        Debug.Log($"meteorsMiddleSpeed = {_meteorsMiddleSpeed}");
-        Debug.Log($"meteorsHealthMultplier = {_meteorsHealthMultplier}");
-        Debug.Log($"enemiesMiddleFrequencyGeneration = {_enemiesMiddleFrequencyGeneration}");
-        Debug.Log($"enemiesMaxHealth = {_enemiesMaxHealth}");
-        Debug.Log($"enemyBulletDamage = {_enemyBulletDamage}");
-        Debug.Log($"enemyBulletSpeed = {_enemyBulletSpeed}");
-        Debug.Log($"enemiesSpeed = {_enemiesSpeed}");
-        Debug.Log($"enemiesShootDelay = {_enemiesShootDelay}");
+        // Debug.Log($"meteorsMiddleFrequencyGeneration = {_meteorsMiddleFrequencyGeneration}");
+        // Debug.Log($"meteorsMiddleSpeed = {_meteorsMiddleSpeed}");
+        // Debug.Log($"meteorsHealthMultplier = {_meteorsHealthMultplier}");
+        // Debug.Log($"enemiesMiddleFrequencyGeneration = {_enemiesMiddleFrequencyGeneration}");
+        // Debug.Log($"enemiesMaxHealth = {_enemiesMaxHealth}");
+        // Debug.Log($"enemyBulletDamage = {_enemyBulletDamage}");
+        // Debug.Log($"enemyBulletSpeed = {_enemyBulletSpeed}");
+        // Debug.Log($"enemiesSpeed = {_enemiesSpeed}");
+        // Debug.Log($"enemiesShootDelay = {_enemiesShootDelay}");
     }
     
 }

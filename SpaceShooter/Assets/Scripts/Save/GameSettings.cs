@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
@@ -55,8 +56,6 @@ public class GameSettings : MonoBehaviour
 
             SaveGame();
         }
-        MenuManager.Menu.SetRecordText();
-        MenuManager.Menu.SetCoinsText();
 	}
 
     public void SaveGame()

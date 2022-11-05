@@ -17,6 +17,7 @@ public class Player : Ship
         Speed = GameSettings.CurrentSettings.GetSpeed();
         ShootDelay = GameSettings.CurrentSettings.GetShootDelay();
         MaxHealth = GameSettings.CurrentSettings.GetMaxHealth();
+
         _slider.value = 1;
         _rb = GetComponent<Rigidbody2D>();
         _loseAudio = this.gameObject.transform.Find("Lose").gameObject.GetComponent<AudioSource>();
@@ -49,6 +50,16 @@ public class Player : Ship
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
+        float health = 1.0f*CurrentHealth/MaxHealth;
+        _slider.value = health;
+        _damageAnim.SetFloat("Health", health);
+    }
+
+    public void IncreaseHealth(int value)
+    {
+        CurrentHealth += value;
+        if (CurrentHealth > MaxHealth) { CurrentHealth = MaxHealth; }
+        
         float health = 1.0f*CurrentHealth/MaxHealth;
         _slider.value = health;
         _damageAnim.SetFloat("Health", health);

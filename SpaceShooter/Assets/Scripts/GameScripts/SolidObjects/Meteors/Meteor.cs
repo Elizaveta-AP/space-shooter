@@ -34,7 +34,11 @@ public class Meteor : SolidObject
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<Player>()) {
+        string otherTag = other.gameObject.tag;
+        
+        if (otherTag == "Shield") { base.Death(); }
+
+        else if (other.gameObject.GetComponent<Player>()) {
             base.Death();
             other.gameObject.GetComponent<Player>().TakeDamage(MaxHealth);
             }
@@ -42,6 +46,7 @@ public class Meteor : SolidObject
     public override void Death()
     {
         Score.CurrentScore.SetScore(MaxHealth);
+        BonusGeneration.Bonuses.Generation(transform.position);
         base.Death();
     }
     

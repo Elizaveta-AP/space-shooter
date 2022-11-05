@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Meteor
   - Coin
+  - Shield
+  - Bonus
   layers:
   - Default
   - TransparentFX
@@ -22,8 +24,8 @@ TagManager:
   - EnemysShells
   - Enemies
   - Coins
-  - 
-  - 
+  - Shield
+  - Bonus
   - 
   - 
   - 
@@ -50,6 +52,9 @@ TagManager:
     locked: 0
   - name: Coins
     uniqueID: 2978460099
+    locked: 0
+  - name: Bonuses
+    uniqueID: 2884515309
     locked: 0
   - name: Meteors
     uniqueID: 3919178825
