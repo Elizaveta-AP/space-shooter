@@ -41,9 +41,9 @@ public class GameDifficulty : MonoBehaviour
         _meteorsMiddleSpeed *= 1.05f;
         _meteorsHealthMultplier += 1;
         _enemiesMiddleFrequencyGeneration *= 0.95f;
-        _enemiesMaxHealth += 50;
-        _enemyBulletDamage += 5;
-        _enemyBulletSpeed += 0.1f;
+        _enemiesMaxHealth += 20;
+        _enemyBulletDamage += 2;
+        _enemyBulletSpeed += 0.2f;
         _enemiesSpeed += 0.1f;
         _enemiesShootDelay *= 0.95f; 
         // Debug.Log($"meteorsMiddleFrequencyGeneration = {_meteorsMiddleFrequencyGeneration}");

@@ -10,7 +10,7 @@ public class Bullet : Shell
         forvard = transform.up;
         _rb = GetComponent<Rigidbody2D>();
         MyTag = gameObject.tag;
-        if (MyTag == "player")
+        if (MyTag == "Player")
         {
             Speed = GameSettings.CurrentSettings.GetBulletSpeed();
             Damage = GameSettings.CurrentSettings.GetBulletDamage();

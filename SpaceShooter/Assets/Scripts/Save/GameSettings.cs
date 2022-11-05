@@ -98,28 +98,45 @@ public class GameSettings : MonoBehaviour
     // Speed
     public float GetSpeed() { return _speed; }
 
-    public void SetSpeed(float speed) { _speed = speed; }
+    public void ImproveSpeed(float value) 
+    { 
+        _speed += value; 
+        SaveGame();
+    }
     
     // Shoot Delay
     public float GetShootDelay() { return _shootDelay; }
 
-    public void SetShootDelay(float shootDelay) { _shootDelay = shootDelay; }
+    public void ImproveShootDelay(float value) 
+    { 
+        _shootDelay -= value; 
+        SaveGame();
+    }
     
     // Max Health
     public int GetMaxHealth() { return _maxHealth; }
 
-    public void SetMaxHealth(int maxHealth) { _maxHealth = maxHealth; }
+    public void ImproveMaxHealth(int value) 
+    { 
+        _maxHealth += value; 
+        SaveGame();
+    }
 
     // BulletSpeed
     public float GetBulletSpeed() { return _bulletSpeed; }
 
-    public void SetBulletSpeed(int bulletSpeed) { _bulletSpeed = bulletSpeed; }
+    public void ImproveBulletSpeed(int value) 
+    { 
+        _bulletSpeed += value;
+        SaveGame();
+    }
 
     // BulletDamage
     public int GetBulletDamage() { return _bulletDamage; }
 
-    public void SetBulletDamage(int bulletDamage) { _bulletDamage = bulletDamage; }
-
-
-
+    public void ImproveBulletDamage(int value) 
+    { 
+        _bulletDamage += value; 
+        SaveGame();
+    }
 }

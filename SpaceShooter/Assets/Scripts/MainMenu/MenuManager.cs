@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public int CurrentSave;
 
     private TMP_Text _helloText, _recordText, _coinsText;
-    private GameObject _playersMenu;
+    private GameObject _shopMenu, _playersMenu;
 
     private void Awake() 
     {
@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
         _recordText = GameObject.Find("RecordText").GetComponent<TMP_Text>();
         _coinsText = GameObject.Find("CoinsText").GetComponent<TMP_Text>();
 
+        _shopMenu = transform.Find("Shop").gameObject;
         _playersMenu = transform.Find("Players").gameObject;
 
     }
@@ -38,14 +39,19 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     
-    public void ButtonQuit()
+    public void ButtonShop()
     {
-        Application.Quit();
+        _shopMenu.SetActive(true);
     }
 
     public void ButtonPlayers()
     {
         _playersMenu.SetActive(true);
+    }
+
+    public void ButtonQuit()
+    {
+        Application.Quit();
     }
     
     public void ButtonBack(GameObject window)
