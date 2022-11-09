@@ -25,7 +25,7 @@ public class Player : Ship
         _rightFireAnim = this.gameObject.transform.Find("RightFire").gameObject.GetComponent<Animator>();
         _middleFireAnim = this.gameObject.transform.Find("MiddleFire").gameObject.GetComponent<Animator>();
         _damageAnim = this.gameObject.transform.Find("Damage").gameObject.GetComponent<Animator>();
-        StartCoroutine(ShootBullet(-90));
+        StartCoroutine(ShootBullet());
         base.Start();
     }
 

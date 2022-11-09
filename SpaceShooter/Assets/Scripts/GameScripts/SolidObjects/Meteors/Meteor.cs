@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Meteor : SolidObject
 {
+    [SerializeField] private ParticleSystem _destruction;
     private System.Random _random = new System.Random();
-    private float _middleSpeed;
-    private float _size, _speedRotation, _scale;
+    private int _startSpeed = 5;
+    private float _middleSpeed, _size, _speedRotation, _scale;
     private Rigidbody2D _rb;
 
     protected override void Start()
@@ -17,7 +18,7 @@ public class Meteor : SolidObject
         transform.localScale = new Vector3(_scale, _scale, _scale);
 
         _middleSpeed = GameDifficulty.CurrentDifficulty._meteorsMiddleSpeed;
-        Speed = _random.Next(Mathf.CeilToInt(_middleSpeed*50), Mathf.CeilToInt(_middleSpeed*150))/100.0f;
+        Speed = _startSpeed;
         _speedRotation = _random.Next(-360, 360);
 
         MaxHealth = Mathf.RoundToInt(GameDifficulty.CurrentDifficulty._meteorsHealthMultplier * _scale);
@@ -27,11 +28,17 @@ public class Meteor : SolidObject
 
     void FixedUpdate()
     {
+        if (transform.position.x <= (8.9f + _scale/2.0f) && Speed == 5) 
+        { 
+            Speed = _random.Next(Mathf.CeilToInt(_middleSpeed*50), Mathf.CeilToInt(_middleSpeed*150))/100.0f; 
+        }
+
         _rb.MovePosition(transform.position - new Vector3 (Speed, 0, 0) * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation + _speedRotation * Time.fixedDeltaTime);
         
         if (transform.position.x < -11) base.Death();
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         string otherTag = other.gameObject.tag;
@@ -47,6 +54,13 @@ public class Meteor : SolidObject
     {
         Score.CurrentScore.SetScore(MaxHealth);
         BonusGeneration.Bonuses.Generation(transform.position);
+        GameDifficulty.CurrentDifficulty.KillsCountUp(0.5f);
+
+        ParticleSystem particles = Instantiate(_destruction, transform.position, Quaternion.Euler(0, 0, 0));
+        ParticleSystem.MainModule particleMain = particles.main;
+        particleMain.startSize = new ParticleSystem.MinMaxCurve(_scale);
+
+
         base.Death();
     }
     

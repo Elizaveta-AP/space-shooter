@@ -3185,6 +3185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 600678991}
+  - component: {fileID: 600678992}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -3222,6 +3223,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 1200}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &600678992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600678990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5747b6e63a7a2240b070de22bb8011d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &624577256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,6 +3365,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2003594727}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: ButtonShootDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600678992}
+        m_TargetAssemblyTypeName: ShopButtonsActive, Assembly-CSharp
+        m_MethodName: SetActiveButtonShootDelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4256,6 +4281,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 600678992}
+        m_TargetAssemblyTypeName: ShopButtonsActive, Assembly-CSharp
+        m_MethodName: SetActiveButtonShipHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &734716805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4651,6 +4688,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2003594727}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: ButtonBulletDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600678992}
+        m_TargetAssemblyTypeName: ShopButtonsActive, Assembly-CSharp
+        m_MethodName: SetActiveButtonBulletDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5930,11 +5979,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1041427391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 763963843}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ButtonQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1041427391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6698,6 +6759,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2003594727}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: ButtonShipSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600678992}
+        m_TargetAssemblyTypeName: ShopButtonsActive, Assembly-CSharp
+        m_MethodName: SetActiveButtonShipSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9681,6 +9754,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2003594727}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: ButtonBulletSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600678992}
+        m_TargetAssemblyTypeName: ShopButtonsActive, Assembly-CSharp
+        m_MethodName: SetActiveButtonShipSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

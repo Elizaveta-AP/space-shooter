@@ -16,7 +16,7 @@ public abstract class Ship : SolidObject
     }
 
 
-    protected IEnumerator ShootBullet(int shootAngle)
+    protected IEnumerator ShootBullet()
     {
         while(true)
         {
@@ -25,7 +25,7 @@ public abstract class Ship : SolidObject
             foreach (Transform bulletHolder in BulletHolders)
             {
                 ShotAudio.Play();
-                Instantiate(Bullet, bulletHolder.position, Quaternion.Euler(0, 0, shootAngle));
+                Instantiate(Bullet, bulletHolder.position, bulletHolder.rotation);
             }  
         }
     }

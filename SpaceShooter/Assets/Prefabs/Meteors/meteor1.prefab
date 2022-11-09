@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7349236524180465298}
   - component: {fileID: 3951492294888486207}
   - component: {fileID: 1178291675487126834}
+  - component: {fileID: 215938386177183065}
   m_Layer: 8
   m_Name: meteor1
   m_TagString: Meteor
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dac9d7d88919644e9b4bb292e0d9ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageAnimation: {fileID: 215938386177183065}
+  _destruction: {fileID: 6130932312081807366, guid: d5d5963cf04775c49a5e4524fd816d55, type: 3}
 --- !u!70 &1178291675487126834
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +139,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.022446217, y: 0.013060992}
   m_Size: {x: 1.1351105, y: 0.8938823}
   m_Direction: 1
+--- !u!95 &215938386177183065
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547278785407066997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b2baa63ace1b234eba2e1104baff23e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

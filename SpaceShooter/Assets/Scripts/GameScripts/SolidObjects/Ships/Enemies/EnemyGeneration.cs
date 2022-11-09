@@ -23,8 +23,8 @@ public class EnemyGeneration : MonoBehaviour
             yield return new WaitForSeconds(_frequency);
 
             GameObject enemy = Enemy[_random.Next(0, Enemy.Length)];
-            Vector3 position = new Vector3(10, _random.Next(-430, 330)/100.0f, 0);
-            Instantiate(enemy, position, Quaternion.Euler(0, 0, 180));
+            Vector3 position = new Vector3(9.5f, _random.Next(-330, 330)/100.0f, 0);
+            Instantiate(enemy, position, Quaternion.Euler(0, 0, 90), transform);
         }
     }
 
