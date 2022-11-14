@@ -35,4 +35,19 @@ public class Enemy : Ship
         GameDifficulty.CurrentDifficulty.KillsCountUp(1);
         base.Death();
     }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.gameObject.layer == 6)
+        {
+            other.GetComponent<Player>().TakeDamage(CurrentHealth);
+            base.Death();
+            Instantiate(_destruction, transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        else if (other.gameObject.tag == "Shield")
+        {
+            base.Death();
+            Instantiate(_destruction, transform.position, Quaternion.Euler(0, 0, 0));
+        }
+    }
 }

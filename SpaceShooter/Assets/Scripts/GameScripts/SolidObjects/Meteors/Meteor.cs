@@ -39,29 +39,38 @@ public class Meteor : SolidObject
         if (transform.position.x < -11) base.Death();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        string otherTag = other.gameObject.tag;
-        
-        if (otherTag == "Shield") { base.Death(); }
-
-        else if (other.gameObject.GetComponent<Player>()) {
-            base.Death();
-            other.gameObject.GetComponent<Player>().TakeDamage(MaxHealth);
-            }
-    }
     public override void Death()
     {
         Score.CurrentScore.SetScore(MaxHealth);
         BonusGeneration.Bonuses.Generation(transform.position);
         GameDifficulty.CurrentDifficulty.KillsCountUp(0.5f);
 
+        GenerateParticles();
+
+        base.Death();
+    }
+
+    private void GenerateParticles()
+    {
         ParticleSystem particles = Instantiate(_destruction, transform.position, Quaternion.Euler(0, 0, 0));
         ParticleSystem.MainModule particleMain = particles.main;
         particleMain.startSize = new ParticleSystem.MinMaxCurve(_scale);
+    }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        string otherTag = other.gameObject.tag;
+        
+        if (otherTag == "Shield") 
+        { 
+            base.Death(); 
+            GenerateParticles();
+            }
 
-        base.Death();
+        else if (other.gameObject.GetComponent<Player>()) {
+            base.Death();
+            other.gameObject.GetComponent<Player>().TakeDamage(MaxHealth);
+            }
     }
     
 }

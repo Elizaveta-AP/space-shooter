@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Score : MonoBehaviour
 {
     public static Score CurrentScore;
     private int _score;
     private TMP_Text _scoreText;
     private int _scoreMultiplier;
+
     void Start()
     {
         CurrentScore = this;
@@ -15,7 +17,7 @@ public class Score : MonoBehaviour
         _score = 0;
         _scoreMultiplier = 1;
     }
-
+ 
     public int GetScore()
     {
         return _score;
@@ -27,12 +29,13 @@ public class Score : MonoBehaviour
         _scoreText.text = $"Счет: {_score}";
     }
 
-    public IEnumerator SetScoreMultiplier(int multiplier, int time)
+    public void SetScoreMultiplier(int multiplier)
     {
         _scoreMultiplier = multiplier;
+    }
 
-        yield return new WaitForSeconds(time);
-
-        _scoreMultiplier = 1;
+    public int GetScoreMultiplier()
+    {
+        return _scoreMultiplier;
     }
 }

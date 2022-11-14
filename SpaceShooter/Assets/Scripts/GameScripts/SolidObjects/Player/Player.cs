@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+ 
 public class Player : Ship
 {
     private Rigidbody2D _rb;

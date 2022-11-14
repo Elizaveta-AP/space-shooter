@@ -5,6 +5,7 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private bool _isGame;
     [SerializeField] private Sprite[] _images = new Sprite[2];
     private  List<GameObject> BGs = new List<GameObject>();
     private SpriteRenderer _BG0_0, _BG0_1, _BG1_0, _BG1_1;
@@ -28,11 +29,11 @@ public class Background : MonoBehaviour
         foreach (GameObject bg in BGs)
         {
             bg.transform.Translate(new Vector3(-1, 0, 0) * _speed * Time.fixedDeltaTime);
-            if (bg.transform.position.x < -18) bg.transform.position = bg.transform.position + new Vector3(36, 0, 0);
+            if (bg.transform.position.x <= -18) bg.transform.position = bg.transform.position + new Vector3(36, 0, 0);
         }
 
-        if (((_currentImage == -1) && (Score.CurrentScore.GetScore() >= 5000)) || ((_currentImage == 0) && (Score.CurrentScore.GetScore() >= 15000))
-        || (((_currentImage == 1) && (Score.CurrentScore.GetScore() >= 30000))))
+        if ((_isGame) && ((_currentImage == -1) && (Score.CurrentScore.GetScore() >= 5000)) || 
+        ((_currentImage == 0) && (Score.CurrentScore.GetScore() >= 15000)) || (((_currentImage == 1) && (Score.CurrentScore.GetScore() >= 30000))))
         {
             _currentImage += 1;
             StartCoroutine(ChangeBackground());

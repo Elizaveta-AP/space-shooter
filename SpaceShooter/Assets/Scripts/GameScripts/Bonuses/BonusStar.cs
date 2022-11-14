@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class BonusStar :  Bonus
 {
-    private int _scoreMultiplier, _time;
+    private int _time;
+    private GameObject _starTimer;
 
     public override void Start()
     {
         base.Start();
-        _scoreMultiplier = 2;
+
+        _starTimer = GameObject.Find("SliderStar");
+
         _time = 10;
     }
-
+ 
     public override void GetBonus(GameObject player)
     {
-        StartCoroutine(Score.CurrentScore.SetScoreMultiplier(_scoreMultiplier, _time));
+        _starTimer.GetComponent<StarTimer>().StartTimerCoroutine(_time);
+        
         base.GetBonus(player);
     }
 }

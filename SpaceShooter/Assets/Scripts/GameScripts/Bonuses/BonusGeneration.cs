@@ -16,7 +16,7 @@ public class BonusGeneration : MonoBehaviour
 
     public void Generation(Vector3 position)
     {
-        int newBonus = _random.Next(25);
+        int newBonus = _random.Next(20);
         switch (newBonus)
         {
             case 0: 

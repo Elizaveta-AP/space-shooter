@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class BonusShield : Bonus
 {
-    [SerializeField] GameObject _shield;
+    private int _time;
+    private GameObject _shieldTimer;
+
+    public override void Start()
+    {
+        base.Start();
+
+        _shieldTimer = GameObject.Find("SliderShield");
+
+        _time = 10;
+    }
+ 
     public override void GetBonus(GameObject player)
     {
-        Instantiate(_shield, player.transform);
+        _shieldTimer.GetComponent<ShieldTimer>().StartTimerCoroutine(_time);
+        
         base.GetBonus(player);
     }
-
-
 }
