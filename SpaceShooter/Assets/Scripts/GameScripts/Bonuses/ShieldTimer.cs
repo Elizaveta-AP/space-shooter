@@ -29,8 +29,6 @@ public class ShieldTimer : MonoBehaviour
         _image.SetActive(true);
         _slider.SetActive(true);
 
-        Debug.Log(_currentShield);
-
         if (_currentShield == null) { _currentShield = Instantiate(_shield, _parentTransform); }
 
         _timeLeft = time;
@@ -46,7 +44,6 @@ public class ShieldTimer : MonoBehaviour
 
         Destroy(_currentShield);
         _currentShield = null;
-        Debug.Log(_currentShield);
 
         _image.SetActive(false);
         _slider.SetActive(false);

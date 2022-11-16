@@ -6,13 +6,16 @@ public class Enemy : Ship
 {
     [SerializeField] private ParticleSystem _destruction;
     private Rigidbody2D _rb;
+    private EnemyHealth _enemyHealth;
     private int _startSpeed = 5;
+
     protected override void Start()
     {
         Speed = _startSpeed;
         ShootDelay = GameDifficulty.CurrentDifficulty._enemiesShootDelay;
         MaxHealth = GameDifficulty.CurrentDifficulty._enemiesMaxHealth;
         _rb = GetComponent<Rigidbody2D>();
+        _enemyHealth = transform.Find("Canvas").GetComponent<EnemyHealth>();
         StartCoroutine(ShootBullet());
         base.Start();
     }
@@ -34,6 +37,13 @@ public class Enemy : Ship
         BonusGeneration.Bonuses.Generation(transform.position);
         GameDifficulty.CurrentDifficulty.KillsCountUp(1);
         base.Death();
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        float healthBarValue = (float)CurrentHealth / (float)MaxHealth;
+        _enemyHealth.SetHealthValue(healthBarValue);
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
