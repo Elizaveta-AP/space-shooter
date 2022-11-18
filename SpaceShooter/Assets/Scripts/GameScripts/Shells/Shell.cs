@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public abstract class Shell : MonoBehaviour
 {
-    
+    private Rigidbody2D ThisRigidbody;
+    protected Transform ThisTransform;
     protected float Speed;
-    [SerializeField] protected int Damage;
+    protected int Damage;
     protected Vector3 forvard;
     protected string MyTag;
-    
-
 
     protected virtual void Start()
     {
+        ThisRigidbody = transform.GetComponent<Rigidbody2D>();
+        ThisTransform = gameObject.transform;
         
+        forvard = ThisTransform.up;
     }
-
     
-    protected void Move(Rigidbody2D rb)
+    protected void Move()
     {
-        rb.MovePosition(transform.position + forvard * Speed * Time.fixedDeltaTime);
-        if ((transform.position.x > 10) || (transform.position.x < -10)) Death();
+        ThisRigidbody.MovePosition(ThisTransform.position + forvard * Speed * Time.fixedDeltaTime);
+        if ((ThisTransform.position.x > 10) || (ThisTransform.position.x < -10)) Death();
     }
     
     protected void Death(){

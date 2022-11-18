@@ -60,7 +60,6 @@ public class Laser : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("update");
             _length = 8.8f - _transform.position.x;
 
             Vector2 size = new Vector2 (0.26f, _length);
@@ -82,8 +81,6 @@ public class Laser : MonoBehaviour
 
         while(_length > 0.1f)
         {
-            Debug.Log("destroy");
-
             Vector2 size = _spriteRenderer.size - new Vector2 (0, 1) * _speed * Time.deltaTime;
 
             _length = size.y;

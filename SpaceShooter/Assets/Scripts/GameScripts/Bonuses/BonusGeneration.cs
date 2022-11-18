@@ -6,7 +6,7 @@ public class BonusGeneration : MonoBehaviour
 {
     public static BonusGeneration Bonuses;
 
-    [SerializeField] private GameObject _shield, _pill, _star;
+    [SerializeField] private GameObject _shield, _pill, _star, _magnet;
 
     private System.Random _random = new System.Random();
 
@@ -27,6 +27,9 @@ public class BonusGeneration : MonoBehaviour
                 break;
             case 2: 
                 Instantiate(_star, position, Quaternion.Euler(0,0,0));
+                break;
+            case 3: 
+                Instantiate(_magnet, position, Quaternion.Euler(0,0,0));
                 break;
             default: break;
         }

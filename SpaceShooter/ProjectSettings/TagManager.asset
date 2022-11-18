@@ -11,6 +11,7 @@ TagManager:
   - Shield
   - Bonus
   - HolderLaser
+  - Magnet
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - Shield
   - Bonus
   - Laser
-  - 
-  - 
+  - Missile
+  - Magnet
   - 
   - 
   - 
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 4266973079
+    locked: 0
+  - name: Explotion
+    uniqueID: 3422512873
     locked: 0
   - name: Player
     uniqueID: 4250681935

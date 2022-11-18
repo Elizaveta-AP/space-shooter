@@ -6,11 +6,20 @@ public abstract class Ship : SolidObject
 {
     [SerializeField] protected GameObject Bullet;
     protected float ShootDelay;
-    [SerializeField] protected List<Transform> BulletHolders = new List<Transform>();
+    protected List<Transform> BulletHolders = new List<Transform>();
     protected AudioSource ShotAudio;
 
     protected override void Start()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (child.CompareTag("HolderBullet") && child.gameObject.activeInHierarchy)
+            {
+                BulletHolders.Add(child);
+            }
+        }
+
         ShotAudio = gameObject.transform.Find("Laser").GetComponent<AudioSource>();
         base.Start();
     }
