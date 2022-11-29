@@ -400,7 +400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1300, y: 0}
   m_SizeDelta: {x: 180, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9080631800560272311
@@ -929,8 +929,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageAnimation: {fileID: 3101049408347172920}
   Bullet: {fileID: 4801454582552836200, guid: 8ffe909ec2f6f3a4b9d5ca5ed8b04faf, type: 3}
-  BulletHolders:
-  - {fileID: 3064239230727326793}
   _destruction: {fileID: 3493452381079330470, guid: 1f5795ca2ab43974b9c21b7f99dffe6c, type: 3}
 --- !u!1 &6973625052582167237
 GameObject:

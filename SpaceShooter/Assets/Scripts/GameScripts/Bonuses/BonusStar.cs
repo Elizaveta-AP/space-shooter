@@ -13,7 +13,7 @@ public class BonusStar :  Bonus
 
         _starTimer = GameObject.Find("SliderStar");
 
-        _time = 10;
+        _time = GameSettings.CurrentSettings.GetBonusStarWorkTime();
     }
  
     public override void GetBonus(GameObject player)

@@ -7,7 +7,6 @@ public class LaserTimer : MonoBehaviour
 {
     [SerializeField] private Slider _timeSlider;
     [SerializeField] private GameObject _laser;
-    private GameObject _currentLaser;
     private Transform _parentTransform;
     private float _timer, _fillingTime, _workTime;
     private enum State {IsCharging, IsCharged, IsWorking};
@@ -17,8 +16,8 @@ public class LaserTimer : MonoBehaviour
     {
         _parentTransform = GameObject.Find("Player").GetComponent<Transform>();
 
-        _fillingTime = 180;
-        _workTime = 10;
+        _fillingTime = GameSettings.CurrentSettings.GetLaserLoadTime();
+        _workTime = GameSettings.CurrentSettings.GetLaserWorkTime();
 
         _state = State.IsCharging;
         StartCoroutine(FillEnergy());
@@ -57,7 +56,7 @@ public class LaserTimer : MonoBehaviour
     
     private IEnumerator StartWork()
     {
-        _currentLaser = Instantiate(_laser, _parentTransform);
+        _laser.SetActive(true);
 
         _timer = _workTime;
 
@@ -70,8 +69,7 @@ public class LaserTimer : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(_currentLaser.transform.GetComponent<Laser>().DestroyLaser());
-        _currentLaser = null;
+        StartCoroutine(_laser.transform.GetComponent<Laser>().DestroyLaser());
 
         _state = State.IsCharging;
 

@@ -24,10 +24,13 @@ public class GameOver : MonoBehaviour
 
         _score.text = $"{score}";
         _coins.text = $"{coins}";
+
+        Leaderboard.CurrentLeaderboard.CompareValue(score);
     }
 
     public void ButtonContinue()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }

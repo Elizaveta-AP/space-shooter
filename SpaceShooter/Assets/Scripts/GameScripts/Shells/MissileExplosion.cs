@@ -14,10 +14,10 @@ public class MissileExplosion : MonoBehaviour
         _transform = gameObject.transform;
         _animator = transform.GetComponent<Animator>();
 
-        _diametr = 4;
+        _diametr = GameSettings.CurrentSettings.GetMissileDamageDiametr();
         _animator.SetFloat("Diametr", _diametr);
 
-        _damage = 50;
+        _damage = GameSettings.CurrentSettings.GetMissileDamage();
         
         StartCoroutine(Death());
     }

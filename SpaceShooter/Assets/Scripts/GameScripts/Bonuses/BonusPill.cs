@@ -9,7 +9,7 @@ public class BonusPill : Bonus
     public override void Start()
     {
         base.Start();
-        _healthValue = 50;
+        _healthValue = GameSettings.CurrentSettings.GetPillHealthCount();;
     }
 
     public override void GetBonus(GameObject player)

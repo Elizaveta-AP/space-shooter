@@ -16,7 +16,7 @@ public class ShootMissile : MonoBehaviour
     {
         _isLoaded = false;
         _transform = gameObject.transform;
-        _missilesCount = 50;
+        _missilesCount = GameSettings.CurrentSettings.GetMissilesCount();
         _loadingTime = 5;
         SetText();
 
@@ -40,13 +40,16 @@ public class ShootMissile : MonoBehaviour
 
     private void Shoot()
     {
-        _missilesCount -= 1;
-        SetText();
+        if (GameSettings.CurrentSettings.UseMissile())
+        {
+            _missilesCount = GameSettings.CurrentSettings.GetMissilesCount();
+            SetText();
 
-        Instantiate(_missile, _transform.position + new Vector3 (0.5f,0f,0f), _transform.rotation);
+            Instantiate(_missile, _transform.position + new Vector3 (0.5f,0f,0f), _transform.rotation);
 
-        _isLoaded = false;
-        TryToLoad();
+            _isLoaded = false;
+            TryToLoad();
+        }
     }
 
     private void SetText()

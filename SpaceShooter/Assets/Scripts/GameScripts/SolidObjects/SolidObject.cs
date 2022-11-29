@@ -15,6 +15,8 @@ public abstract class SolidObject : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        if (CurrentHealth <= 0) { return; }
+        
         CurrentHealth -= damage;
         DamageAnimation.SetTrigger("TakeDamage");
 

@@ -8,7 +8,6 @@ public class ShieldTimer : MonoBehaviour
     [SerializeField] private GameObject _image, _slider;
     [SerializeField] private Slider _timeSlider;
     [SerializeField] private GameObject _shield;
-    private GameObject _currentShield;
     private Transform _parentTransform;
     private float _timeLeft;
 
@@ -19,7 +18,7 @@ public class ShieldTimer : MonoBehaviour
 
     public void StartTimerCoroutine(float time)
     {
-        if (_currentShield != null) { StopAllCoroutines(); }
+        if (_shield.activeInHierarchy) { StopAllCoroutines(); }
         StartCoroutine(StartTimer(time));
     }
 
@@ -29,7 +28,7 @@ public class ShieldTimer : MonoBehaviour
         _image.SetActive(true);
         _slider.SetActive(true);
 
-        if (_currentShield == null) { _currentShield = Instantiate(_shield, _parentTransform); }
+        if (!_shield.activeInHierarchy) { _shield.SetActive(true); }
 
         _timeLeft = time;
 
@@ -42,8 +41,7 @@ public class ShieldTimer : MonoBehaviour
             yield return null;
         }
 
-        Destroy(_currentShield);
-        _currentShield = null;
+        _shield.SetActive(false);
 
         _image.SetActive(false);
         _slider.SetActive(false);

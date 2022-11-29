@@ -13,7 +13,7 @@ public class BonusShield : Bonus
 
         _shieldTimer = GameObject.Find("SliderShield");
 
-        _time = 10;
+        _time = GameSettings.CurrentSettings.GetBonusShieldWorkTime();
     }
  
     public override void GetBonus(GameObject player)

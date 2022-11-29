@@ -14,8 +14,14 @@ public abstract class Ship : SolidObject
         for (int i = 0; i < transform.childCount; i++)
         {
             Transform child = transform.GetChild(i);
-            if (child.CompareTag("HolderBullet") && child.gameObject.activeInHierarchy)
+
+            if (child.CompareTag("HolderBullet") && (child.gameObject.activeInHierarchy))
             {
+                BulletHolders.Add(child);
+            }
+            else if (child.CompareTag("HolderBullet") && GameSettings.CurrentSettings.GetHasAdditionalGuns())
+            {
+                child.gameObject.SetActive(true);
                 BulletHolders.Add(child);
             }
         }

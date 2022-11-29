@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     void FixedUpdate()
     {
-        _slider.transform.position = Camera.main.WorldToScreenPoint(_parentTransform.position + new Vector3 (0,0.8f,0));
+        _slider.transform.position = Camera.main.WorldToScreenPoint(_parentTransform.position + new Vector3 (0,0.7f,0));
     }
 
     public void SetHealthValue(float value)

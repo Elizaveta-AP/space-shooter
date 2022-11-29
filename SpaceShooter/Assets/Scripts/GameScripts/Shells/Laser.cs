@@ -10,23 +10,18 @@ public class Laser : MonoBehaviour
     private float _length, _deltaLength, _speed; //
     private int _damage;
     private IEnumerator _updateCoroutine;
-    void Start()
+
+
+    void OnEnable()
     {
         _collider = GetComponent<BoxCollider2D>();
         _transform = GetComponent<Transform>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _backgroundRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 
-        _damage = 1;
+        _damage = GameSettings.CurrentSettings.GetLaserDamage();
 
         _speed = 15;
-
-        _spriteRenderer.size = new Vector2 (0.26f, 0);
-        _backgroundRenderer.size = new Vector2 (0.26f, 0);
-
-        _collider.size = new Vector2 (0.26f, 0);
-
-        _collider.offset = new Vector2 (0, 0);
 
         _updateCoroutine = UpdateLaser();
 
@@ -94,7 +89,7 @@ public class Laser : MonoBehaviour
 
             yield return null;
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D other) 

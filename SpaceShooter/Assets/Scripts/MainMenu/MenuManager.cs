@@ -39,24 +39,19 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     
-    public void ButtonShop()
+    public void ButtonShop(bool isOn)
     {
-        _shopMenu.SetActive(true);
+        _shopMenu.SetActive(isOn);
     }
 
-    public void ButtonPlayers()
+    public void ButtonPlayers(bool isOn)
     {
-        _playersMenu.SetActive(true);
+        _playersMenu.SetActive(isOn);
     }
 
     public void ButtonQuit()
     {
         Application.Quit();
-    }
-    
-    public void ButtonBack(GameObject window)
-    {
-        window.SetActive(false);
     }
 
 

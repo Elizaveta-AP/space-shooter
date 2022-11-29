@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController ThisGameController;
-    [SerializeField] private GameObject _upPanel, _downPanel, _gameOverPanel;
+    [SerializeField] private GameObject _upPanel, _downPanel, _gameOverPanel, _pausePanel;
     private bool _isPause;
     
     void Start()
@@ -21,13 +21,15 @@ public class GameController : MonoBehaviour
         {
             if (_isPause)
             {
-                Time.timeScale = 1;
                 _isPause = false;
+                _pausePanel.SetActive(false);
+                Time.timeScale = 1;
             }
             else
             {
-                Time.timeScale = 0;
                 _isPause = true;
+                _pausePanel.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }
@@ -37,6 +39,7 @@ public class GameController : MonoBehaviour
         _upPanel.SetActive(false);
         _downPanel.SetActive(false);
         _gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
 }

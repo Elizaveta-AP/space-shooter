@@ -7,7 +7,7 @@ using TMPro;
 public class SavedPlayers : MonoBehaviour
 {
 
-
+    [SerializeField] private ColorChanger[] ColorChangingElements;
     private GameObject _inputField;
 
     private GameObject[] Slots = new GameObject[4];
@@ -23,11 +23,6 @@ public class SavedPlayers : MonoBehaviour
 
         _inputField = transform.Find("InputField").gameObject;
 
-        if (PlayerPrefs.HasKey("CurrentSave")) 
-        {
-            Slots[MenuManager.Menu.CurrentSave].transform.GetComponent<Toggle>().isOn = true;
-        }
-
         for (int i = 0; i < 4; i++)
         {
             string slotName = "Slot" + i;
@@ -37,21 +32,35 @@ public class SavedPlayers : MonoBehaviour
                 Slots[i].gameObject.GetComponentInChildren<TMP_Text>().text = Names[i];
             }
         }
+
+        if (PlayerPrefs.HasKey("CurrentSave")) 
+        {
+            Slots[MenuManager.Menu.CurrentSave].transform.GetComponent<Toggle>().isOn = true;
+        }
     }
 
 
     public void ChooseSlot(int slotNumber)
     {
-        MenuManager.Menu.CurrentSave = slotNumber;
-        string saveName = "Slot" + slotNumber;
+        if (slotNumber != MenuManager.Menu.CurrentSave)
+        {
+            MenuManager.Menu.CurrentSave = slotNumber;
+            string saveName = "Slot" + slotNumber;
 
-        PlayerPrefs.SetInt("CurrentSave", slotNumber);
-    
-        GameSettings.CurrentSettings.LoadGame(saveName);
+            PlayerPrefs.SetInt("CurrentSave", slotNumber);
+            PlayerPrefs.Save();
+        
+            GameSettings.CurrentSettings.LoadGame(slotNumber);
 
-        if (!PlayerPrefs.HasKey(saveName)) ButtonName();
+            if (!PlayerPrefs.HasKey(saveName)) ButtonName();
 
-        MenuManager.Menu.SetAllTextes();
+            MenuManager.Menu.SetAllTextes();
+
+            foreach (ColorChanger element in ColorChangingElements)
+            {
+                element.ChangeColor();
+            }
+        }
     }
 
     public void ButtonName()
@@ -65,6 +74,7 @@ public class SavedPlayers : MonoBehaviour
     {
         Slots[MenuManager.Menu.CurrentSave].GetComponentInChildren<TMP_Text>().text = name;
         PlayerPrefs.SetString("Slot" + MenuManager.Menu.CurrentSave, name);
+        PlayerPrefs.Save();
 
         GameSettings.CurrentSettings.Name = name;
         GameSettings.CurrentSettings.SaveGame();

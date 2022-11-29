@@ -6,7 +6,7 @@ public class Magnet : MonoBehaviour
 {
     private Transform _transform;
     private List<Rigidbody2D> MagnetizedObjects = new List<Rigidbody2D>();
-    private int _magnetizedSpeed = 5;
+    private int _magnetizedSpeed = 10;
 
     void Start()
     {

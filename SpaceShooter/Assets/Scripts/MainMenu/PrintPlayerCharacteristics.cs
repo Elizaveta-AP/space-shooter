@@ -6,17 +6,13 @@ using TMPro;
 public class PrintPlayerCharacteristics : MonoBehaviour
 {
     public static PrintPlayerCharacteristics PrintCharacteristics;
-    private TMP_Text _shipSpeed, _shipHealth, _shootDelay, _bulletSpeed, _bulletDamage;
+    [SerializeField] private TMP_Text _shipSpeed, _shipHealth, _gunsCount, _shootDelay, _bulletSpeed, _bulletDamage,
+    _laserWorkTime, _laserReloadTime, _laserDamage, _missilesCount, _missileDamage, _missileDamageDiametr,
+    _bonusMagnet, _bonusShield, _bonusStar, _bonusPill;
     
     void Start()
     {
         PrintCharacteristics= this;
-
-        _shipSpeed = transform.Find("TextShipSpeed").GetComponent<TMP_Text>();
-        _shipHealth = transform.Find("TextShipHealth").GetComponent<TMP_Text>(); 
-        _shootDelay = transform.Find("TextShootDelay").GetComponent<TMP_Text>();
-        _bulletSpeed = transform.Find("TextBulletSpeed").GetComponent<TMP_Text>();
-        _bulletDamage = transform.Find("TextBulletDamage").GetComponent<TMP_Text>();
 
         SetAllTextes();
     }
@@ -28,12 +24,22 @@ public class PrintPlayerCharacteristics : MonoBehaviour
 
     public void SetShipHealthText()
     {
-        _shipHealth.text = "Прочность: " + GameSettings.CurrentSettings.GetMaxHealth();
+        _shipHealth.text = "Здоровье: " + GameSettings.CurrentSettings.GetMaxHealth();
     }
 
+    public void SetGunsCountText()
+    {
+        int gunsCount;
+
+        if(GameSettings.CurrentSettings.GetHasAdditionalGuns()) { gunsCount = 4; }
+        else { gunsCount = 2; }
+
+        _gunsCount.text = "Количество пушек: " + gunsCount;
+    }
+    
     public void SetShootDelayText()
     {
-        _shootDelay.text = "Скорость перезарядки: " + GameSettings.CurrentSettings.GetShootDelay();
+        _shootDelay.text = "Время перезарядки: " + GameSettings.CurrentSettings.GetShootDelay() + " c.";
     }
 
     public void SetBulletSpeedText()
@@ -46,13 +52,80 @@ public class PrintPlayerCharacteristics : MonoBehaviour
         _bulletDamage.text = "Урон: " + GameSettings.CurrentSettings.GetBulletDamage();
     }
 
-    public void SetAllTextes()
+    public void SetLaserWorkTimeText()
     {
+        _laserWorkTime.text = "Время действия: " + GameSettings.CurrentSettings.GetLaserWorkTime() + " c.";
+    }
+
+    public void SetLaserLoadTimeText()
+    {
+        int time = GameSettings.CurrentSettings.GetLaserLoadTime();
+        int minutes = time/60;
+        int seconds = time%60;
+        string text = string.Format("Время зарядки: {0:0} мин.", minutes);
+        if(seconds > 0) { text += string.Format(" {0:00} с.", seconds); }
+        _laserReloadTime.text = text;
+    }
+
+    public void SetLaserDamageText()
+    {
+        _laserDamage.text = "Урон: " + GameSettings.CurrentSettings.GetLaserDamage()/0.02f + "/с.";
+    }
+
+    public void SetMissilesCountText()
+    {
+        _missilesCount.text = "Количество: " + GameSettings.CurrentSettings.GetMissilesCount();
+    }
+
+    public void SetMissileDamageText()
+    {
+        _missileDamage.text = "Урон: " + GameSettings.CurrentSettings.GetMissileDamage();
+    }
+
+    public void SetMissileDamageDiametrText()
+    {
+        _missileDamageDiametr.text = "Диаметр поражения: " + GameSettings.CurrentSettings.GetMissileDamageDiametr();
+    }
+
+    public void SetBonusMagnetrText()
+    {
+        _bonusMagnet.text = "Время действия магнита: " + GameSettings.CurrentSettings.GetBonusMagnetWorkTime() + " с.";
+    }
+
+    public void SetBonusShieldText()
+    {
+        _bonusShield.text = "Время действия щита: " + GameSettings.CurrentSettings.GetBonusShieldWorkTime() + " с.";
+    }
+
+    public void SetBonusStarText()
+    {
+        _bonusStar.text = "Время действия удвоенного опыта: " + GameSettings.CurrentSettings.GetBonusStarWorkTime() + " с.";
+    }
+
+    public void SetBonusPillText()
+    {
+        _bonusPill.text = "Количество жизней в таблетке: " + GameSettings.CurrentSettings.GetPillHealthCount();
+    }
+
+
+    public void SetAllTextes()
+    { 
         SetShipSpeedText();
         SetShipHealthText();
+        SetGunsCountText();
         SetShootDelayText();
         SetBulletSpeedText();
         SetBulletDamageText();
+        SetLaserWorkTimeText();
+        SetLaserLoadTimeText();
+        SetLaserDamageText();
+        SetMissilesCountText();
+        SetMissileDamageText();
+        SetMissileDamageDiametrText();
+        SetBonusMagnetrText();
+        SetBonusShieldText();
+        SetBonusStarText();
+        SetBonusPillText();
     }
 
 }

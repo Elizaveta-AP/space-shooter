@@ -13,7 +13,7 @@ public class BonusMagnet : Bonus
 
         _magnetTimer = GameObject.Find("SliderMagnet");
 
-        _time = 10;
+        _time = GameSettings.CurrentSettings.GetBonusMagnetWorkTime();
     }
 
     

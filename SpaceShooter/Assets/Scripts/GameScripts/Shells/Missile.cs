@@ -10,7 +10,7 @@ public class Missile : Shell
         base.Start();
 
         Speed = 10;
-        Damage = 50;
+        Damage = 0;
     }
 
     void FixedUpdate()

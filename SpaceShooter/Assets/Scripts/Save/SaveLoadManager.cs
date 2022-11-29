@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -10,7 +8,7 @@ public static class SaveLoadManager
 
 	public static void SaveGame() //Метод для сохранения
 	{
-        string path = Application.persistentDataPath + "/" + GameSettings.CurrentSettings.GetSlot() + ".save"; //Путь к сохранению. Вы можете использовать любое расширение
+        string path = Application.persistentDataPath + "/Slot" + GameSettings.CurrentSettings.GetSlot() + ".save"; //Путь к сохранению. Вы можете использовать любое расширение
 		
 		FileStream fs = new FileStream (path, FileMode.Create); //Создание файлового потока
 
@@ -22,9 +20,9 @@ public static class SaveLoadManager
 
 	}
 
-	public static SaveData LoadGame(string slot) //Метод загрузки
+	public static SaveData LoadGame(int slotNumber) //Метод загрузки
 	{
-        string path = Application.persistentDataPath + "/" + slot + ".save";
+        string path = Application.persistentDataPath + "/Slot" + slotNumber + ".save";
 
 		if(File.Exists(path)) //Проверка существования файла сохранения
 		{
