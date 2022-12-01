@@ -102,7 +102,7 @@ public class GameSettings : MonoBehaviour
 
     public bool SpendCoins(int value)
     {
-        if (_coins > value) 
+        if (_coins >= value) 
         { 
             _coins -= value;
             MenuManager.Menu.SetCoinsText();

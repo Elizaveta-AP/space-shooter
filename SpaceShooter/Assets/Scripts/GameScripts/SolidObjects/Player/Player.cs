@@ -19,11 +19,11 @@ public class Player : Ship
 
         _slider.value = 1;
         _rb = GetComponent<Rigidbody2D>();
-        _loseAudio = this.gameObject.transform.Find("Lose").gameObject.GetComponent<AudioSource>();
-        _leftFireAnim = this.gameObject.transform.Find("LeftFire").gameObject.GetComponent<Animator>();
-        _rightFireAnim = this.gameObject.transform.Find("RightFire").gameObject.GetComponent<Animator>();
-        _middleFireAnim = this.gameObject.transform.Find("MiddleFire").gameObject.GetComponent<Animator>();
-        _damageAnim = this.gameObject.transform.Find("Damage").gameObject.GetComponent<Animator>();
+        _loseAudio = GameObject.Find("Lose").gameObject.GetComponent<AudioSource>();
+        _leftFireAnim = gameObject.transform.Find("LeftFire").gameObject.GetComponent<Animator>();
+        _rightFireAnim = gameObject.transform.Find("RightFire").gameObject.GetComponent<Animator>();
+        _middleFireAnim = gameObject.transform.Find("MiddleFire").gameObject.GetComponent<Animator>();
+        _damageAnim = gameObject.transform.Find("Damage").gameObject.GetComponent<Animator>();
         StartCoroutine(ShootBullet());
         base.Start();
     }

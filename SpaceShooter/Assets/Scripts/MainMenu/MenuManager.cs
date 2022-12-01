@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public int CurrentSave;
 
     private TMP_Text _helloText, _recordText, _coinsText;
-    private GameObject _shopMenu, _playersMenu;
+    private GameObject _shopMenu, _playersMenu, _settingsMenu;
 
     private void Awake() 
     {
@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
 
         _shopMenu = transform.Find("Shop").gameObject;
         _playersMenu = transform.Find("Players").gameObject;
-
+        _settingsMenu = transform.Find("Settings").gameObject;
     }
 
     private void Start() 
@@ -47,6 +47,11 @@ public class MenuManager : MonoBehaviour
     public void ButtonPlayers(bool isOn)
     {
         _playersMenu.SetActive(isOn);
+    }
+
+    public void ButtonSettings(bool isOn)
+    {
+        _settingsMenu.SetActive(isOn);
     }
 
     public void ButtonQuit()

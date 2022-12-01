@@ -9,10 +9,12 @@ public class Meteor : SolidObject
     private int _startSpeed = 5;
     private float _middleSpeed, _size, _speedRotation, _scale;
     private Rigidbody2D _rb;
+    private PlayRandomSound _meteorExplosion;
 
     protected override void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _meteorExplosion = GameObject.Find("MeteorExplosion").GetComponent<PlayRandomSound>();
 
         _scale = _random.Next(40, 200) /100.0f;
         transform.localScale = new Vector3(_scale, _scale, _scale);
@@ -47,6 +49,8 @@ public class Meteor : SolidObject
 
         GenerateParticles();
 
+        _meteorExplosion.PlaySound();
+        
         base.Death();
     }
 

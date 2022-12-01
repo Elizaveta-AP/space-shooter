@@ -8,6 +8,7 @@ public class Enemy : Ship
     private Rigidbody2D _rb;
     private EnemyHealth _enemyHealth;
     private int _startSpeed = 5;
+    private PlayRandomSound _enemyExplosion;
 
     protected override void Start()
     {
@@ -16,6 +17,7 @@ public class Enemy : Ship
         MaxHealth = GameDifficulty.CurrentDifficulty._enemiesMaxHealth;
         _rb = GetComponent<Rigidbody2D>();
         _enemyHealth = transform.Find("Canvas").GetComponent<EnemyHealth>();
+        _enemyExplosion = GameObject.Find("EnemyExplosion").GetComponent<PlayRandomSound>();
         StartCoroutine(ShootBullet());
         base.Start();
     }
@@ -36,6 +38,7 @@ public class Enemy : Ship
         Score.CurrentScore.SetScore(MaxHealth);
         BonusGeneration.Bonuses.Generation(transform.position);
         GameDifficulty.CurrentDifficulty.KillsCountUp(1);
+        _enemyExplosion.PlaySound();
         base.Death();
     }
 

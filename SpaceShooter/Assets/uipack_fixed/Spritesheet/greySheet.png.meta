@@ -233,7 +233,7 @@ TextureImporter:
         width: 4
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,6 +241,27 @@ TextureImporter:
       bones: []
       spriteID: d8aa707278385724c8b466686e85e1b2
       internalID: -656123916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greySheet_5
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 43
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3ea7aa88f48f440ae471289f45ff70
+      internalID: -1470069614
       vertices: []
       indices: 
       edges: []
@@ -256,6 +277,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      greySheet_5: -1470069614
       greySheet_4: -656123916
       greySheet_2: 1562244005
       greySheet_1: -345850907

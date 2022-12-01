@@ -8,6 +8,7 @@ public abstract class Ship : SolidObject
     protected float ShootDelay;
     protected List<Transform> BulletHolders = new List<Transform>();
     protected AudioSource ShotAudio;
+    private PlayRandomSound _shipHitDamage;
 
     protected override void Start()
     {
@@ -26,6 +27,9 @@ public abstract class Ship : SolidObject
             }
         }
 
+        
+        _shipHitDamage = GameObject.Find("ShipHitDamage").GetComponent<PlayRandomSound>();
+
         ShotAudio = gameObject.transform.Find("Laser").GetComponent<AudioSource>();
         base.Start();
     }
@@ -43,5 +47,12 @@ public abstract class Ship : SolidObject
                 Instantiate(Bullet, bulletHolder.position, bulletHolder.rotation);
             }  
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+
+        _shipHitDamage.PlaySound();
     }
 }
